@@ -13,5 +13,4 @@ public interface UserRepo extends JpaRepository<User, Long> {
 //    public List<User> findUserByPostsGreaterThan(@Param("n") int n);
 @Query("select u from User u where SIZE(u.posts) > :n")
 public List<User> findUserByPostsGreaterThan(@Param("n") int n);
-
 }

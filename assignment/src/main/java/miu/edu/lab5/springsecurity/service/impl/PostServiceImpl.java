@@ -1,9 +1,9 @@
-package miu.edu.lab4.service.implmantations;
+package miu.edu.lab5.springsecurity.service.impl;
 
-import miu.edu.lab4.domain.Comment;
-import miu.edu.lab4.domain.Post;
-import miu.edu.lab4.repository.PostRepo;
-import miu.edu.lab4.service.PostService;
+import miu.edu.lab5.springsecurity.entity.Comment;
+import miu.edu.lab5.springsecurity.entity.Post;
+import miu.edu.lab5.springsecurity.repository.PostRepo;
+import miu.edu.lab5.springsecurity.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void update(long id, Post post) {
-        Post p= postRepo.findById(id).get();
+        Post p= postRepo.findById(id).orElse(null);
         p.setAuthor(post.getAuthor());
         p.setTitle(post.getTitle());
         p.setContent(post.getContent());
